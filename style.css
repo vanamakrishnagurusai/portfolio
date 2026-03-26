@@ -527,7 +527,14 @@ body {
 .hero {
     align-items: flex-start;
     padding-top: calc(var(--nav-height) + 40px);
+}
 
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 110px;
+        padding-bottom: 50px;
+        min-height: auto;
+    }
 }
 
 .greeting {
@@ -550,16 +557,15 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(45px, 9vw, 85px);
+    font-size: clamp(38px, 8vw, 85px);
     color: var(--text-main);
-    line-height: 1.2;
-    margin-bottom: 15px;
+    line-height: 1.1;
+    margin-bottom: 20px;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     font-weight: 700;
     letter-spacing: -0.02em;
-    white-space: nowrap;
-    /* gap: 1px; small gap for space character */
+    /* white-space: nowrap; REMOVED to allow wrapping on small mobile */
 }
 
 .hero-title .char {
@@ -612,9 +618,16 @@ body {
     color: var(--text-light);
     max-width: 560px;
     margin-bottom: 50px;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.7;
     letter-spacing: 0.3px;
+}
+
+@media (max-width: 768px) {
+    .hero-desc {
+        padding: 0 10px;
+        font-size: 1rem;
+    }
 }
 
 .hero-cta {
@@ -680,8 +693,14 @@ body {
 .about-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 40px;
     align-items: start;
+}
+
+@media (max-width: 992px) {
+    .about-wrapper {
+        grid-template-columns: 1fr;
+    }
 }
 
 .about-text p {
@@ -838,7 +857,8 @@ body {
 .timeline-tasks li {
     position: relative;
     padding-left: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    line-height: 1.6;
 }
 
 .timeline-tasks li::before {
@@ -1192,6 +1212,15 @@ body {
     transform: translateY(-5px) scale(1.05);
 }
 
+@media (max-width: 768px) {
+    .project-number-bg {
+        font-size: 8rem;
+        bottom: -10px;
+        right: -5px;
+        opacity: 0.02;
+    }
+}
+
 .text-cyan {
     color: var(--accent);
 }
@@ -1532,14 +1561,16 @@ footer {
         right: 0;
         top: -100%;
         height: 100vh;
-        width: 70%;
-        background: rgba(5, 10, 20, 0.95);
+        width: 75%;
+        max-width: 320px;
+        background: rgba(5, 10, 20, 0.98);
         flex-direction: column;
         align-items: flex-start;
-        padding: 100px 30px;
+        padding: 80px 30px;
         transition: 0.4s;
         z-index: 200;
-        gap: 15px;
+        gap: 10px;
+        overflow-y: auto;
     }
 
     .nav-links.active {
@@ -1591,9 +1622,9 @@ footer {
     }
 
     .hero-image-frame {
-        width: 250px;
-        height: 250px;
-        margin: 0 auto;
+        width: 220px;
+        height: 220px;
+        margin: 30px auto 0;
     }
 
     .hero-cta {
@@ -1623,6 +1654,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    overflow: hidden;
 }
 
 .skills-scatter-container {
@@ -1685,6 +1717,16 @@ footer {
 .skill-bubble i {
     font-size: 26px;
     color: #00f5a0;
+}
+
+@media (max-width: 768px) {
+    .skill-bubble {
+        width: 45px;
+        height: 45px;
+    }
+    .skill-bubble i {
+        font-size: 20px;
+    }
 }
 
 .skill-bubble:hover {
@@ -1774,15 +1816,27 @@ footer {
 }
 
 .skill-tag-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     background: rgba(100, 255, 218, 0.05);
     color: var(--text-light);
     font-family: var(--font-mono);
-    font-size: 13px;
-    padding: 8px 16px;
+    font-size: 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     border: 1px solid rgba(100, 255, 218, 0.15);
     transition: var(--transition);
     cursor: default;
+}
+
+.skill-tag-pill i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.skill-tag-pill:hover i {
+    transform: scale(1.2);
 }
 
 .skill-tag-pill:hover {

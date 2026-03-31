@@ -1715,7 +1715,7 @@ footer {
 }
 
 .skill-bubble i {
-    font-size: 26px;
+    font-size: 32px;
     color: #00f5a0;
 }
 
@@ -1725,7 +1725,7 @@ footer {
         height: 45px;
     }
     .skill-bubble i {
-        font-size: 20px;
+        font-size: 24px;
     }
 }
 
@@ -1810,41 +1810,51 @@ footer {
 }
 
 .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 14px;
+    justify-items: center;
 }
 
 .skill-tag-pill {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    background: rgba(100, 255, 218, 0.05);
+    justify-content: center;
+    gap: 8px;
+    background: rgba(100, 255, 218, 0.04);
     color: var(--text-light);
     font-family: var(--font-mono);
-    font-size: 12px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid rgba(100, 255, 218, 0.15);
-    transition: var(--transition);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 14px 8px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: default;
+    width: 100%;
+    min-width: 60px;
+    text-align: center;
 }
 
 .skill-tag-pill i {
-    font-size: 16px;
-    transition: transform 0.3s ease;
+    font-size: 26px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+    line-height: 1;
 }
 
 .skill-tag-pill:hover i {
-    transform: scale(1.2);
+    transform: scale(1.25) translateY(-3px);
+    color: var(--accent);
 }
 
 .skill-tag-pill:hover {
-    background: rgba(100, 255, 218, 0.15);
+    background: rgba(100, 255, 218, 0.12);
     color: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(100, 255, 218, 0.2);
+    border-color: rgba(100, 255, 218, 0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.15), 0 0 15px rgba(100, 255, 218, 0.08);
 }
 
 /* ==========================================================================
